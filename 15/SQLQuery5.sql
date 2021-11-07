@@ -1,0 +1,4 @@
+﻿/*ЗАДАНИЕ 5.
+Измените UPDATE SQL запрос из предыдущего задания так, чтобы он изменял цены телефонов в таблице
+new_phone_price на максимальную цену каждого телефона соответствующего цвета, найденную в таблице
+phone_price. Напишите SQL запрос, который выводит изменённые строки*/UPDATE new_phone_price set price = (select max(price) from phone_pricewhere phone_price.color_id=new_phone_price.color_id and phone_price.phone_id=new_phone_price.phone_idgroup by phone_id, color_id)select p.phone_id,p.color_id,p.merchant_id,p.price,s.amountfrom new_phone_price p left join stock s on s.phone_id=p.phone_id and s.color_id=p.color_id and s.merchant_id=p.merchant_idwhere s.amount=1

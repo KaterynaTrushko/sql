@@ -1,0 +1,1 @@
+﻿select * from m_phones where body_type='раскладной' or body_type='слайдер'

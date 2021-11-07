@@ -1,0 +1,3 @@
+﻿/*ЗАДАНИЕ 4.
+Напишите SQL запрос, выбирающий из таблицы new_phone_price строки для которых объём запасов на складе=1 (таблица stock,
+столбец amount). С помощью команды UPDATE увеличьте цены выбранных телефонов на 10 грн. Проверьте результат изменений*/UPDATE new_phone_price set price = price+10select p.phone_id,p.color_id,p.merchant_id,p.price,s.amountfrom new_phone_price p left join stock s on s.phone_id=p.phone_id and s.color_id=p.color_id and s.merchant_id=p.merchant_idwhere s.amount=1
